@@ -1,15 +1,15 @@
 puts "Rock, Paper and Scissors Game"
 puts "Let's go make your move"
 
-$moves = ["rock", "paper", "scissors"]
+$moves = ["Rock", "Paper", "Scissors"]
 $playerScore = 0
 $computerScore = 0
 
 def gameMatch
     validmove = false
     while !validmove
-        print "Enter your move choice: "
-        playermove = gets.chomp.downcase
+        print "Enter your move choice (Rock/Paper/Scissors): "
+        playermove = gets.chomp.downcase.capitalize
         validmove = case
         when $moves.include?(playermove) then true
         else puts "Invalid Input"
@@ -21,23 +21,23 @@ def gameMatch
     roundResult = case
     when playermove == computermove
         "The game is a Tie!"
-    when playermove == "rock" && computermove == "paper"
-        "You lose. #{computermove} beats #{playermove}"
+    when playermove == "Rock" && computermove == "Paper"
+        then "You lose. #{computermove} beats #{playermove}"
         $computerScore += 1
-    when playermove == "rock" && computermove == "scissors"
-        "You Win. #{playermove} beats #{computermove}"
+    when playermove == "Rock" && computermove == "Scissors"
+        then "You Win. #{playermove} beats #{computermove}"
         $playerScore +=1
-    when playermove == "paper" && computermove == "scissors"
-        "You lose. #{computermove} beats #{playermove}"
+    when playermove == "Paper" && computermove == "Scissors"
+        then "You lose. #{computermove} beats #{playermove}"
         $computerScore += 1
-    when playermove == "paper" && computermove == "rock"
-        "You Win. #{playermove} beats #{computermove}"
+    when playermove == "Paper" && computermove == "Rock"
+        then "You Win. #{playermove} beats #{computermove}"
         $playerScore +=1
-    when playermove == "scissors" && computermove == "rock"
-        "You lose. #{computermove} beats #{playermove}"
+    when playermove == "Scissors" && computermove == "Rock"
+        then "You lose. #{computermove} beats #{playermove}"
         $computerScore += 1
-    when playermove == "scissors" && computermove == "paper"
-        "You Win. #{playermove} beats #{computermove}"
+    when playermove == "Scissors" && computermove == "Paper"
+        then "You Win. #{playermove} beats #{computermove}"
         $playerScore +=1
     end
 
@@ -58,7 +58,7 @@ end
 def matchChain
     validRoundNumber = false
     while !validRoundNumber
-        print("How many rounds do you like to play?")
+        print("How many rounds do you like to play? ")
         roundTobePlayed = gets.chomp.to_i
         validRoundNumber = case
         when roundTobePlayed > 0 then true
